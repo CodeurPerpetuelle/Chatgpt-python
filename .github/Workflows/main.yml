@@ -1,8 +1,11 @@
-steps:
-  - name: Build and Deploy
-    run: |
-      # Install dependencies
-      pip install requirements.txt
-      # Build the project
-      python3 app.py
-      # Deploy the project to Cloudflare Page
+runtime: python38
+
+entrypoint: app.py
+
+dependencies:
+  - openai
+  - gradio
+  - os
+
+env_variables:
+  OPENAI_API_KEY: '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'
