@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: python app.py
+    command: python3 app.py
     volumes:
       - .:/app
     depends_on:
