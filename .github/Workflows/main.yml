@@ -2,8 +2,8 @@ steps:
   - name: Build and Deploy
     run: |
       # Install dependencies
-      pip install -r requirements.txt
+      pip install requirements.txt
       # Build the project
-      python setup.py build
+      python3 app.py
       # Deploy the project to Cloudflare Pages
       cf-pages deploy
