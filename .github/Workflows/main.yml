@@ -5,5 +5,4 @@ steps:
       pip install requirements.txt
       # Build the project
       python3 app.py
-      # Deploy the project to Cloudflare Pages
-      cf-pages deploy
+      # Deploy the project to Cloudflare Page
