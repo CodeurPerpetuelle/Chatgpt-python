@@ -1,4 +1,4 @@
-import os
+import streamlit as st
 import openai
 import gradio as gr
 
@@ -6,7 +6,7 @@ import gradio as gr
 #openai.api_key = os.getenv("OPENAI_API_KEY")
 
 #if you have OpenAI API key as a string, enable the below
-openai.api_key = "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"
+openai.api_key = "xxxxxx"
 
 start_sequence = "\nAI:"
 restart_sequence = "\nHuman: "
@@ -39,17 +39,7 @@ def chatgpt_clone(input, history):
     history.append((input, output))
     return history, history
 
-
-block = gr.Blocks()
-
-
-with block:
-    gr.Markdown("""<h1><center>Build Yo'own ChatGPT with OpenAI API & Gradio</center></h1>
-    """)
-    chatbot = gr.Chatbot()
-    message = gr.Textbox(placeholder=prompt)
-    state = gr.State()
-    submit = gr.Button("SEND")
-    submit.click(chatgpt_clone, inputs=[message, state], outputs=[chatbot, state])
-
-block.launch(debug = True)
+history, _ = chatgpt_clone("Hello, who are you?", None)
+for input, output in history:
+  st.text("Human: " + input)
+  st.text("AI: " + output)
